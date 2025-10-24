@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+=======
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
@@ -6,6 +8,8 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./lib/**/*.{ts,tsx}",
+=======
+    "./pages/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}"
   ],
   theme: {
@@ -74,6 +78,17 @@ const config: Config = {
     }
   },
   plugins: [require("tailwindcss-animate")]
+=======
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-balance": {
+          textWrap: "balance"
+        }
+      });
+    })
+  ]
 };
 
 export default config;

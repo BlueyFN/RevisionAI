@@ -11,10 +11,35 @@
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "NodeNext",
+=======
+    "target": "es2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+=======
+    "types": [
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
     "plugins": [
       {
         "name": "next"
@@ -23,6 +48,8 @@
     "paths": {
       "@/*": ["./*"]
     }
+=======
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -34,4 +61,10 @@
     "**/*.mts"
   ],
   "exclude": ["node_modules"]
+=======
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
