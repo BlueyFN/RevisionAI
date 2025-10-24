@@ -1,5 +1,17 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+=======
     "target": "es2017",
     "lib": [
       "dom",
@@ -18,6 +30,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+=======
     "types": [
       "node"
     ],
@@ -31,12 +44,24 @@
       {
         "name": "next"
       }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+=======
     ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.cts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+=======
     ".next/types/**/*.ts"
   ],
   "exclude": [

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+=======
 import plugin from "tailwindcss/plugin";
 
 const config: Config = {
@@ -6,6 +7,8 @@ const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
+=======
     "./pages/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}"
   ],
@@ -74,6 +77,8 @@ const config: Config = {
       }
     }
   },
+  plugins: [require("tailwindcss-animate")]
+=======
   plugins: [
     require("tailwindcss-animate"),
     plugin(function ({ addUtilities }) {
