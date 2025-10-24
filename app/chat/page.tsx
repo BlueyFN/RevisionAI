@@ -22,7 +22,7 @@ import {
 
 const STORAGE_KEY = "revisionai:sessions";
 
-interface SessionState extends SessionPayload {}
+type SessionState = SessionPayload;
 
 function createInitialSession(): SessionState {
   const greeting = createMessage(

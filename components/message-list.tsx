@@ -3,6 +3,7 @@
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { Pluggable, PluggableList } from "unified";
 import { cn, formatDateTime } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,8 @@ interface MessageListProps {
   messages: ChatMessage[];
   isTyping?: boolean;
 }
+
+const remarkPluginList: PluggableList = [remarkGfm as unknown as Pluggable];
 
 export function MessageList({ messages, isTyping }: MessageListProps) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -95,16 +98,31 @@ function MessageBubble({ message }: { message: ChatMessage }) {
 function Markdown({ children }: { children: string }) {
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={remarkPluginList}
       components={{
-        pre({ node, ...props }) {
+        pre(preProps) {
+          const { node: _node, ...props } = preProps;
+          void _node;
           return (
             <div className="group relative overflow-hidden rounded-md border border-border/60 bg-background/80">
               <pre className="overflow-auto p-4 text-sm" {...props} />
             </div>
           );
         },
-        code({ node, inline, className, children: codeChildren, ...props }) {
+        code(codeProps) {
+          const {
+            node: _node,
+            inline,
+            className,
+            children: codeChildren,
+            ...props
+          } = codeProps as {
+            node?: unknown;
+            inline?: boolean;
+            className?: string;
+            children?: React.ReactNode;
+          } & React.HTMLAttributes<HTMLElement>;
+          void _node;
           const language = /language-(\w+)/.exec(className || "")?.[1];
           const code = String(codeChildren).replace(/\n$/, "");
 

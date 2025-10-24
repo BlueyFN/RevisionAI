@@ -1,14 +1,6 @@
-
-export default function HomePage() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4">
-      <h1 className="text-4xl font-bold">Welcome to RevisionAI</h1>
-      <p className="text-muted-foreground">
-        Start building your StudyAI chatbot experience.
-      </p>
-=======
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -32,12 +24,12 @@ export default function LandingPage() {
           <span className="rounded-full border border-primary/40 bg-primary/10 px-4 py-1 text-sm font-medium tracking-wide text-primary">
             Study smarter with your AI companion
           </span>
-          <h1 className="text-4xl font-bold leading-tight text-balance text-foreground sm:text-5xl md:text-6xl">
+          <h1 className="text-balance text-4xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl">
             Conversational revision tailored for deep understanding.
           </h1>
           <p className="max-w-2xl text-balance text-base text-muted-foreground sm:text-lg">
-            RevisionAI keeps track of your study sessions, trims context intelligently, and helps you capture
-            every insight. Switch devices anytime—your conversations persist in your browser.
+            RevisionAI keeps track of your study sessions, trims context intelligently, and helps you capture every insight. Switch
+            devices anytime—your conversations persist in your browser.
           </p>
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <Button asChild size="lg" className="gap-2">
@@ -45,9 +37,7 @@ export default function LandingPage() {
                 Launch chat <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground">
-              Ctrl/Cmd + K to explore commands
-            </p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">Ctrl/Cmd + K to explore commands</p>
           </div>
         </div>
       </section>
